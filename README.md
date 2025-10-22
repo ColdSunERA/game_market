@@ -1,16 +1,22 @@
 # Game Marketplace Module
 
-A Drupal 10/11 custom module to create a marketplace for in-game items.  
+A Drupal 11 custom module to create a marketplace for in-game items.  
 Allows users to create listings, list items for sale, and view all items with a modal image preview.
 
-## Features
-- Listings and items
-- Price in gold and quantity
-- Discord Name field for each listing
-- Vanilla JS modal for images
-- Pages: /marketplace, /marketplace/{listing}, /marketplace/items, /marketplace/mine
+---
 
-## Installation
-1. Copy `game_market` folder into modules/custom/
-2. Enable the module with `drush en game_market -y`
-3. Clear cache: `drush cr`
+## Features
+
+- Create listings that reference items.
+- Each listing can contain multiple items.
+- Each item in a listing has a **price in gold** and a **quantity**.
+- Listings have a **Discord Name** field.
+- Listings and items displayed using Drupal Views.
+- Vanilla JavaScript modal to preview item images (no jQuery required).
+- Four main pages:
+  - `/marketplace` → Overview of all listings.
+  - `/marketplace/{listing}` → Detail page for a specific listing.
+  - `/marketplace/items` → All items for sale across listings, shows Discord Name.
+  - `/marketplace/mine` → Current user's listings.
+
+---

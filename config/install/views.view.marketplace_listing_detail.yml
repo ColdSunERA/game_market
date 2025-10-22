@@ -1,1 +1,108 @@
-# Placeholder for views.view.marketplace_listing_detail.yml
+langcode: en
+status: true
+dependencies:
+  module:
+    - game_market
+id: marketplace_listing_detail
+label: 'Listing Detail'
+module: views
+description: 'Detail view of a single marketplace listing with its items.'
+tag: ''
+base_table: listing_item
+base_field: id
+core: '11.x'
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      title: 'Listing Detail'
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      query:
+        type: views_query
+      pager:
+        type: none
+      style:
+        type: table
+        options:
+          default: name
+          columns:
+            item_image_link: item_image_link
+            name: name
+            price: price
+            quantity: quantity
+          info:
+            item_image_link:
+              sortable: false
+            name:
+              sortable: true
+            price:
+              sortable: true
+            quantity:
+              sortable: true
+      row:
+        type: fields
+      relationships:
+        item_ref:
+          id: item_ref
+          table: listing_item
+          field: item_ref
+          relationship: none
+          plugin_id: standard
+          required: true
+      fields:
+        item_image_link:
+          id: item_image_link
+          table: listing_item
+          field: id
+          label: 'Image'
+          plugin_id: field
+          alter:
+            rewrite: true
+            text: 'View'
+            make_link: false
+        name:
+          id: name
+          table: game_item
+          field: name
+          relationship: item_ref
+          label: 'Item'
+          plugin_id: field
+        price:
+          id: price
+          table: listing_item
+          field: price
+          label: 'Price (gold)'
+          plugin_id: field
+        quantity:
+          id: quantity
+          table: listing_item
+          field: quantity
+          label: 'Quantity'
+          plugin_id: field
+      sort:
+        name:
+          id: name
+          table: game_item
+          field: name
+          relationship: item_ref
+          order: ASC
+      css_class: 'marketplace-listing-detail-view'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: 'Listing Detail Page'
+    position: 1
+    display_options:
+      path: 'marketplace/{listing}'
+      menu:
+        type: none
+      access:
+        type: perm
+        options:
+          perm: 'access content'
