@@ -5,7 +5,6 @@
   max-width: 1000px;
   margin: 0 auto;
 }
-
 .marketplace-overview-view .views-row,
 .marketplace-my-listings-view .views-row,
 .marketplace-items-view .views-row,
@@ -16,23 +15,23 @@
   background: #fafafa;
   margin-bottom: 1rem;
 }
-
 .marketplace-items-view table {
   width: 100%;
   border-collapse: collapse;
 }
-
 .marketplace-items-view th,
 .marketplace-items-view td {
   border-bottom: 1px solid #ddd;
   padding: 0.75rem;
 }
-
 .marketplace-items-view th {
   text-align: left;
   background: #f5f5f5;
 }
-
+.marketplace-items-view td.discord-name {
+  font-style: italic;
+  color: #555;
+}
 .marketplace-items-view a.button--secondary {
   display: inline-block;
   margin-top: 1rem;
@@ -42,12 +41,6 @@
   border-radius: 6px;
   color: #333;
 }
-
 .marketplace-items-view a.button--secondary:hover {
   background: #ddd;
-}
-
-.marketplace-items-view td.discord-name {
-  font-style: italic;
-  color: #555;
 }
