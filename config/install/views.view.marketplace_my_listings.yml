@@ -1,0 +1,103 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - game_market
+id: marketplace_my_listings
+label: 'My Marketplace Listings'
+module: views
+description: 'Lists only the current user’s marketplace listings.'
+tag: ''
+base_table: game_listing
+base_field: id
+core: '11.x'
+display:
+  default:
+    display_plugin: default
+    id: default
+    display_title: Master
+    position: 0
+    display_options:
+      title: 'My Listings'
+      access:
+        type: perm
+        options:
+          perm: 'access content'
+      query:
+        type: views_query
+      pager:
+        type: full
+        options:
+          items_per_page: 20
+      style:
+        type: table
+        options:
+          default: title
+          columns:
+            title: title
+            created: created
+            view_link: view_link
+          info:
+            title:
+              sortable: true
+            created:
+              sortable: true
+            view_link:
+              sortable: false
+      row:
+        type: fields
+      fields:
+        title:
+          id: title
+          table: game_listing
+          field: title
+          label: 'Listing Title'
+          plugin_id: field
+        created:
+          id: created
+          table: game_listing
+          field: created
+          label: 'Created'
+          plugin_id: field
+        view_link:
+          id: view_link
+          table: game_listing
+          field: id
+          label: 'View'
+          plugin_id: custom
+          alter:
+            make_link: true
+            path: '/marketplace/[id]'
+            text: 'View Listing'
+            absolute: false
+      filters:
+        uid:
+          id: uid
+          table: game_listing
+          field: uid
+          value:
+            - ''
+          plugin_id: current_user
+      sort:
+        created:
+          id: created
+          table: game_listing
+          field: created
+          order: DESC
+      css_class: 'marketplace-my-listings-view'
+  page_1:
+    display_plugin: page
+    id: page_1
+    display_title: 'My Listings Page'
+    position: 1
+    display_options:
+      path: 'marketplace/mine'
+      menu:
+        type: normal
+        title: 'My Listings'
+        description: 'View all of your marketplace listings.'
+        menu_name: main
+      access:
+        type: perm
+        options:
+          perm: 'access content'
