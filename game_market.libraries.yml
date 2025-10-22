@@ -1,0 +1,7 @@
+marketplace:
+  css:
+    theme:
+      css/marketplace.css: {}
+  js:
+    js/marketplace-modal.js: {}
+  dependencies: []
