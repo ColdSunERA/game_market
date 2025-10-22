@@ -1,6 +1,6 @@
 # Game Marketplace Module
 
-A Drupal 11 custom module to create a marketplace for in-game items.  
+A Drupal 10/11 custom module to create a marketplace for in-game items.  
 Allows users to create listings, list items for sale, and view all items with a modal image preview.
 
 ---
